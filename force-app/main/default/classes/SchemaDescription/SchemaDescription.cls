@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: Gunther Roskams
  * @Copyright: See MIT License
- * @Uses: 
+ * @Uses: GlobalException.cls
  *
  * -------------------------------------------------------------------
  * Description: Object and Field Description, dependent on the object and/or field
@@ -14,7 +14,7 @@
  * Created: 19/04/2020
  * Last Modified: 19/04/2020
  *
- * Unit tests:
+ * Unit tests: SchemaDescription_Test.cls
  *
  * Changelog: 
  *
