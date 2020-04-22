@@ -33,4 +33,15 @@ public with sharing class GlobalException extends Exception{
         String sCompleteMessage = sErrorCode + ': ' + sErrorMessage;
         this.setMessage(sCompleteMessage);
     }
+    
+    public GlobalException throwObjectException(String sSObjectAPIName){
+        Map<String, String> mappingPlaceHolders = new Map<String, String>{'{0}' => sSObjectAPIName};
+        String sMessage = GlobalUtils.repairPlaceHolders(Label.MESSAGE_WRONG_OBJECT, mappingPlaceHolders);
+        
+        return new GlobalException(sMessage);
+    }
+    
+    public GlobalException throwObjectException(){
+        return new GlobalException(Label.MESSAGE_MISSING_OBJECT);
+    }
 }

@@ -48,4 +48,32 @@ private class GlobalException_Test {
         
         System.assertEquals(sErrorCode + ': ' + sMessage, gEx.getMessage());
     }
+    
+    /**
+     * @description of the test: test the logic for the objectException (error in the schema description)
+     * Outcome: the exception message should contain the name of the wrong object
+     */
+    @IsTest
+    private static void test_ThrowObjectException_1() {
+        String sSObjectAPIName = 'TestObject';
+        
+        Test.startTest();
+        GlobalException gEx = new GlobalException().throwObjectException(sSObjectAPIName);
+        Test.stopTest();
+        
+        System.assert(gEx.getMessage().containsIgnoreCase(sSObjectAPIName));
+    }
+    
+    /**
+     * @description of the test: test the logic for the objectexception when there is no object
+     * Outcome: the exception message should be the same as the complete label MESSAGE_MISSING_OBJECT
+     */
+    @IsTest
+    private static void test_ThrowObjectException_2() {
+        Test.startTest();
+        GlobalException gEx = new GlobalException().throwObjectException();
+        Test.stopTest();
+        
+        System.assertEquals(Label.MESSAGE_MISSING_OBJECT, gEx.getMessage());
+    }
 }
