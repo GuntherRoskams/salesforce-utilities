@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
-        <fullName>MESSAGE_WRONG_OBJECT</fullName>
+        <fullName>MESSAGE_MISSING_FIELD</fullName>
         <categories>Schema Description</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>MESSAGE_WRONG_OBJECT</shortDescription>
-        <value>The object &apos;{0}&apos; is not supported. Please verify your Database Schema</value>
+        <shortDescription>Message Missing Field</shortDescription>
+        <value>The field name in the function is missing</value>
     </labels>
     <labels>
         <fullName>MESSAGE_MISSING_OBJECT</fullName>
@@ -25,12 +25,12 @@
         <value>The field name &apos;{0}&apos; in the object &apos;{1}&apos; is not supported. Please verify your Database Schema</value>
     </labels>
     <labels>
-        <fullName>MESSAGE_MISSING_FIELD</fullName>
+        <fullName>MESSAGE_WRONG_OBJECT</fullName>
         <categories>Schema Description</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Message Missing Field</shortDescription>
-        <value>The field name in the function is missing</value>
+        <shortDescription>MESSAGE_WRONG_OBJECT</shortDescription>
+        <value>The object &apos;{0}&apos; is not supported. Please verify your Database Schema</value>
     </labels>
     <labels>
         <fullName>NO_TEXT_FOR_REPLACEMENT</fullName>
