@@ -40,4 +40,12 @@
         <shortDescription>No text for replace placeholders</shortDescription>
         <value>You don&apos;t provided a text that needs a replacement of a placeholder</value>
     </labels>
+    <labels>
+        <fullName>DEFAULTS_CLASS_DOES_NOT_EXIST</fullName>
+        <categories>TestFactory</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unit tests defaults class does not exist</shortDescription>
+        <value>The defaults class &apos;{0}&apos; doesn't exist.</value>
+    </labels>
 </CustomLabels>

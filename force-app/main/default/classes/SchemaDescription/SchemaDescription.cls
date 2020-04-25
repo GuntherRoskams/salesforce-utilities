@@ -64,5 +64,48 @@ public with sharing class SchemaDescription {
     public Map<String, Schema.RecordTypeInfo> getMapRecordTypesByDeveloperName(){
         return this.objectType.getDescribe().getRecordTypeInfosByDeveloperName();
     }
+    
+    /**
+     * @description This function gets the fields of the object
+     *
+     * @return map with the fields of an object.
+     */
+    public Map<String, Schema.SObjectField> getMapFieldsObject(){
+        return this.objectType.getDescribe().fields.getMap();
+    }
+    
+    /**
+     * @description This function gets the namefield of the object
+     *
+     * @return the SObject field of the object
+     */
+    public Schema.SObjectField getNameField(){
+        Map<String, Schema.SObjectField> mapFieldsObject = this.getMapFieldsObject();
+        // loop through the fields and check the isNameField() function. If the field is a name field, we return this field
+        for (Schema.SObjectField aField : mapFieldsObject.values()){
+            Boolean bIsNameField = aField.getDescribe().isNameField();
+            if (bIsNameField){
+                return aField;
+            }
+        }
+        
+        // this scenario should not be possible, but we need to cover it programmatically
+        return null;
+    }
+    
+    /**
+     * @description detects the feature Person Accounts
+     *
+     * @return returns if the feature 'Person Accounts' is enabled or not
+     */
+    public static Boolean isPersonAccountsEnabled(){
+        
+        Map<String, Schema.RecordTypeInfo> mapRecordtypes = new SchemaDescription('Account').getMapRecordTypesByDeveloperName();
+        if (mapRecordtypes.get('PersonAccount') != null){
+            return true;
+        }
+        
+        return false;
+    }
 
 }
