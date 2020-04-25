@@ -3,7 +3,7 @@
  * @Version: 1.0
  * @Author: Gunther Roskams
  * @Copyright: 2020 Forward
- * @Uses: 
+ * @Uses: GlobalUtils.cls
  *
  * -------------------------------------------------------------------
  * Description: unit tests to test the logic in the global utils
@@ -53,5 +53,19 @@ private class GlobalUtils_Test {
         }
         
         Test.stopTest();
+    }
+    
+    /**
+     * @description of the test: test the logic to get a map with all the user profiles
+     *
+     * Outcome: a map with the user profiles, we check if the standard user profile and the Sysadmin profile is in the map (these are standard profiles)
+     */
+    @IsTest
+    private static void testGetProfilesByName() {
+        Test.startTest();
+        Map<String, Profile> mapProfiles = GlobalUtils.getMapProfilesByName();
+        Test.stopTest();
+        
+        System.assertNotEquals(null, mapProfiles.get('Standard User'));
     }
 }

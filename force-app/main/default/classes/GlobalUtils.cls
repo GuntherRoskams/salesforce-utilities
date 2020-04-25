@@ -44,4 +44,19 @@ public with sharing class GlobalUtils {
         
         throw new GlobalException('ERR_NO_TEXT', Label.NO_TEXT_FOR_REPLACEMENT);
     }
+    
+    /**
+     * @description Get all the user profiles from the organization
+     *
+     * @return a map with all the profiles, indexed by the profile name (the Profile object has no developer Name like other objects)
+     */
+    public static Map<String, Profile> getMapProfilesByName(){
+        Map<String, Profile> mapProfiles = new Map<String, Profile>();
+        List<Profile> lstProfiles = [SELECT Id, Name From Profile];
+        for (Profile p : lstProfiles){
+            mapProfiles.put(p.Name, p);
+        }
+        
+        return mapProfiles;
+    }
 }
