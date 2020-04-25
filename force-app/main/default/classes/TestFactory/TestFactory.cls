@@ -91,7 +91,7 @@ public with sharing class TestFactory {
         }
         
         FieldDefaults theDefaults = (FieldDefaults) t.newInstance();
-        addFieldDefaults(oSObject, theDefaults.getFieldDefaults());
+        addFieldDefaults(oSObject, theDefaults.getMappingDefaultValues());
         return oSObject;
     }
     
@@ -263,6 +263,6 @@ public with sharing class TestFactory {
     }
     
     public interface FieldDefaults {
-        Map<Schema.SObjectField, Object> getFieldDefaults();
+        Map<Schema.SObjectField, Object> getMappingDefaultValues();
     }
 }
