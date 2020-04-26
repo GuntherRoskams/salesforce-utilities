@@ -61,7 +61,44 @@ public with sharing class TestObjectDefaults {
                     User.LocaleSidKey => 'en_US',
                     User.TimezoneSidKey => 'Europe/Brussels',
                     User.Username => 'testy.tester@unit-test.com',
-                    User.ProfileId => mapProfiles.get('Standard User')
+                    User.ProfileId => mapProfiles.get('Standard User').Id
+            };
+        }
+    }
+    
+    public class ContactDefaults implements TestFactory.FieldDefaults {
+        public Map<Schema.SObjectField, Object> getMappingDefaultValues(){
+            return new Map<Schema.SObjectField, Object>{
+                    Contact.LastName => 'Testcontact'
+            };
+        }
+    }
+    
+    public class CaseDefaults implements TestFactory.FieldDefaults {
+        public Map<Schema.SObjectField, Object> getMappingDefaultValues(){
+            return new Map<Schema.SObjectField, Object>{
+                    Case.Subject => 'Test Case'
+            };
+        }
+    }
+    
+    public class LeadDefaults implements TestFactory.FieldDefaults {
+        public Map<Schema.SObjectField, Object> getMappingDefaultValues(){
+            return new Map<Schema.SObjectField, Object>{
+                    // both required fields in the object Lead
+                    Lead.LastName => 'Test Lead',
+                    Lead.Company => 'Test Company'
+            };
+        }
+    }
+    
+    public class OpportunityDefaults implements TestFactory.FieldDefaults {
+        public Map<Schema.SObjectField, Object> getMappingDefaultValues(){
+            return new Map<Schema.SObjectField, Object>{
+                    // all fields below are required in the object Opportunity
+                    Opportunity.Name => 'Test Opportunity',
+                    Opportunity.StageName => 'ClosedWon',
+                    Opportunity.CloseDate => Date.today()
             };
         }
     }

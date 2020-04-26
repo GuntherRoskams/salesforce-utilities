@@ -181,7 +181,12 @@ public with sharing class TestFactory {
             SObject oClonedObject = oNewObject.clone(false, true);
             if (! oNamefield.getDescribe().autoNumber){
                 // the name field is not an autoNumber, we can add the name field in the object without any error
-                oClonedObject.put(String.valueOf(oNamefield), (String) oClonedObject.get(oNamefield) + ' ' + String.valueOf(iIndex));
+                // separate this for the user object. Due to the fact that the username may not contain spaces, we use a special extension for the object user
+                if (String.valueOf(oSObject.getSObjectType()) == 'User'){
+                    oClonedObject.put(String.valueOf(oNamefield), (String) oClonedObject.get(oNamefield) + '_' + String.valueOf(iIndex));
+                } else {
+                    oClonedObject.put(String.valueOf(oNamefield), (String) oClonedObject.get(oNamefield) + ' ' + String.valueOf(iIndex));
+                }
             }
             
             listRecordsToReturn.add(oClonedObject);
@@ -242,21 +247,52 @@ public with sharing class TestFactory {
      */
     private static Schema.SObjectField getNameField(SObject oSObject){
         Schema.SObjectField oNameField = null;
-        if (String.valueOf(oSObject.getSObjectType()) == 'Account'){
-            /* For this object type, we need to get the recordtype of the record that we need to create
-             * There is a difference in field between the recordtype 'PersonAccount' (when the feature Person Accounts is enabled) and the normal (Business) Account records
-             * For Person account, the name field is 'LastName', for a business account, the name field is 'Name'
-             */
-            // Check if the feature 'Person Accounts' is enabled
-            if (SchemaDescription.isPersonAccountsEnabled()){
-                oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('LastName');
-            } else {
-                oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('Name');
+        switch on String.valueOf(oSObject.getSObjectType()){
+            when 'Account' {
+                /* For this object type, we need to get the recordtype of the record that we need to create
+                 * There is a difference in field between the recordtype 'PersonAccount' (when the feature Person Accounts is enabled) and the normal (Business) Account records
+                 * For Person account, the name field is 'LastName', for a business account, the name field is 'Name'
+                 */
+                // Check if the feature 'Person Accounts' is enabled
+                if (SchemaDescription.isPersonAccountsEnabled()){
+                    oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('LastName');
+                } else {
+                    oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('Name');
+                }
             }
-        } else {
-            // for all the other objects, you have only 1 namefield. This can be get from the Schema Description
-            SchemaDescription sd = new SchemaDescription(String.valueOf(oSObject.getSObjectType()));
-            oNameField =  sd.getNameField();
+            when 'User' {
+                /*
+                 * For this object type, we don't have a field Name to create a user with a name. This field is a read-only field.
+                 * Due to the fact that the username needs to be unique, we use the username as the name field
+                 */
+                oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('Username');
+            }
+            when 'Contact' {
+                /*
+                 * For this object type, we have 2 name fields (LastName and FirstName).
+                 * Due to the fact that the lastName is required, we use the LastName as the name field
+                 */
+                oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('LastName');
+            }
+            when 'Case' {
+                /*
+                 * For this object type, we have 1 name fields we cannot manipulate (CaseNumber).
+                 * In this case, we use the field 'Subject'
+                 */
+                oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('Subject');
+            }
+            when 'Lead' {
+                /*
+                 * For this object type, we have 1 name fields we cannot manipulate (Name).
+                 * In this case, we use the field 'Company'
+                 */
+                oNameField = oSObject.getSObjectType().getDescribe().fields.getMap().get('Company');
+            }
+            when else {
+                // for all the other objects, you have only 1 namefield. This can be get from the Schema Description
+                SchemaDescription sd = new SchemaDescription(String.valueOf(oSObject.getSObjectType()));
+                oNameField =  sd.getNameField();
+            }
         }
         
         return oNameField;
