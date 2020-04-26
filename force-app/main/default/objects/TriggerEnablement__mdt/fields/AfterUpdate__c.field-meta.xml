@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AfterUpdate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>check this box if the trigger functionality needs to be active at after update DML statement</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>After Update</label>
+    <type>Checkbox</type>
+</CustomField>
