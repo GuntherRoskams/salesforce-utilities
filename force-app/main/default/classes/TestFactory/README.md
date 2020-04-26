@@ -88,3 +88,5 @@ Account a2 = (Account) TestFactory.createSObject(new Account(AccountNumber = 'G-
   ```
   List<Account> lstAccounts = (List<Account>) TestFactory.createSObjectList(new Account(), 5, 'AccountSpecific', true);
   ```
+##Installation
+The 2 classes contain logic from the classes GlobalUtils and GlobalException. You need to install these as first or toghether with the 2 classes, mentioned at the top of this document
