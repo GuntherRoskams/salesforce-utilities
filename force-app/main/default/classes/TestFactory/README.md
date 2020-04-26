@@ -1,4 +1,7 @@
 #TestFactory Framework
+## License 
+See MIT License in root folder
+
 ## Description
 The code in this directory provides you a framework to create testdata for Unit tests in Apex (Salesforce.com). 
 You can create testdata from each standard object and custom object that you need in your unit tests.
