@@ -2,7 +2,7 @@
  * @Package: GlobalUtils.cls
  * @Version: 1.0
  * @Author: Gunther Roskams
- * @Copyright: 2020 Forward
+ * @Copyright: See MIT License
  * @Uses: GlobalException.cls
  *
  * -------------------------------------------------------------------
