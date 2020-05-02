@@ -87,6 +87,6 @@ Enabling the trigger logic can be done by the custom metadata type 'Trigger Enab
      Lookout: if you check the box, you also need to bind this operation type with the logic class in your trigger.
   - Save the record. Your trigger logic is now enabled.
  
- # Write unit tests for your trigger logic
+### Write unit tests for your trigger logic
  Unnecessary to mention, but you need to write tests for your Apex classes, so you need to write tests for your trigger logic. It is usual business.
  If you wrote the tests for your trigger, both classes of the framework are covered for 100%
