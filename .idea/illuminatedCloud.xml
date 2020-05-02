@@ -4,7 +4,7 @@
     <option name="connections">
       <list>
         <IlluminatedCloudConnection>
-          <option name="connectionName" value="Salesforce-utilities" />
+          <option name="connectionName" value="salesforce-utilities" />
           <option name="connectionType" value="OAUTH" />
           <option name="defaultModuleName" value="Salesforce-utilities" />
           <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/Salesforce_utilities/OfflineSymbolTable.zip" />
