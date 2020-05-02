@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="IlluminatedCloud" name="Illuminated Cloud">
       <configuration>
-        <option name="connectionName" value="Salesforce-utilities" />
+        <option name="connectionName" value="salesforce-utilities" />
         <option name="connectionType" value="OAUTH" />
         <option name="defaultSourceRootUrl" value="file://$MODULE_DIR$/force-app/main/default" />
         <option name="moduleContents">
@@ -24,7 +24,7 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="IlluminatedCloud (Salesforce-utilities/Salesforce-utilities)" jdkType="IlluminatedCloud" />
+    <orderEntry type="jdk" jdkName="IlluminatedCloud (salesforce-utilities/salesforce-utilities)" jdkType="IlluminatedCloud" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
