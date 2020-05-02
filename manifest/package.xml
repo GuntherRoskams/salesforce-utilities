@@ -34,10 +34,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomLabel</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>CustomLabels</name>
     </types>
     <types>
