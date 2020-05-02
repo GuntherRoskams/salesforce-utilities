@@ -48,13 +48,13 @@ public with sharing class Account_TriggerLogic2 implements Triggers.Handler {
 }
 ```
 ### Create the trigger
-We create the bases skeleton from a trigger like before:
+We create the basic skeleton from a trigger like before:
 ```
 trigger <NAME_OF_YOUR_TRIGGER> on <YOUR_SOBJECT> (TRIGGER_OPERATIONS) {
 
 }
 ```
-So you get the following trigger basic skeleton for an account
+In this example, you get the following trigger basic skeleton for an account
 ```
 trigger Account_Trigger on Account (before insert, after update) {
 
