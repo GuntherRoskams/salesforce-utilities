@@ -48,4 +48,36 @@
         <shortDescription>Unit tests defaults class does not exist</shortDescription>
         <value>The defaults class &apos;{0}&apos; doesn't exist.</value>
     </labels>
+    <labels>
+        <fullName>NOT_SUPPORTED_HTTP_METHOD</fullName>
+        <categories>REST Connector</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>HTTP Method is not supported</shortDescription>
+        <value>Your HTTP Request method &apos;{0}&apos; is not supported in Salesforce</value>
+    </labels>
+    <labels>
+        <fullName>MOCK_NOT_CONFIGURED</fullName>
+        <categories>REST Connector</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unit test mock service not configured for an endpoint</shortDescription>
+        <value>No Mock service configured for endpoint</value>
+    </labels>
+    <labels>
+        <fullName>APEXOBJECT_DOES_NOT_EXIST</fullName>
+        <categories>REST Connector</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Apex object doesn't exist to provide HTTP Response</shortDescription>
+        <value>Your Apexobject {0} doesn&apos;t exist</value>
+    </labels>
+    <labels>
+        <fullName>ACTION_NOT_SUPPORTED</fullName>
+        <categories>REST Connector</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The action type defined in the action, is not defined as action in the connector</shortDescription>
+        <value>The action &apos;{0}&apos; is not supported for the controller &apos;{1}&apos;</value>
+    </labels>
 </CustomLabels>
